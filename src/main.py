@@ -35,11 +35,12 @@ def main():
 
     for row in table.findAll("tr"):
         cells = row.findAll("td")
-        booking_id = cells[1].find(text=True)
+        booking_entry = cells[1].find(text=True)
 
-        if booking_id:
+        if booking_entry:
             # parse_guests = re.findall(r'\d+', str(cells[3]))
             # guests = list(map(int, parse_guests))
+            booking_id = str(booking_entry).strip()
             
             parse_dates = re.findall(
                 r'\d\d-\d\d-\d\d', str(cells[2].find(text=True)))
@@ -63,8 +64,8 @@ def main():
             print(booking_id)
             print(reservation)
 
-            result = col.update_one({'_id': booking_id}, {
-                                    "$set": reservation}, upsert=True)
+#            result = col.update_one({'_id': booking_id}, {
+#                                    "$set": reservation}, upsert=True)
 
 if __name__ == "__main__":
     required_env_vars = {"EMAIL", "PASSWORD", "DBSTRING"}
