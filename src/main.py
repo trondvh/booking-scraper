@@ -20,7 +20,7 @@ def login():
     return(s)
 
 def fetch_reservations(session):
-    reservations_url = "https://hafjellkvitfjell.r360owner.se/r360/owner/reservations.php"
+    reservations_url = "https://hafjellkvitfjell.r360owner.se/r360/owner/reservations.php?startdate=2021-11-01&enddate=2099-12-31"
     return(session.get(reservations_url))
 
 def main():
