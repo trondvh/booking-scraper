@@ -64,8 +64,8 @@ def main():
             print(booking_id)
             print(reservation)
 
-#            result = col.update_one({'_id': booking_id}, {
-#                                    "$set": reservation}, upsert=True)
+            result = col.update_one({'_id': booking_id}, {
+                                    "$set": reservation}, upsert=True)
 
 if __name__ == "__main__":
     required_env_vars = {"EMAIL", "PASSWORD", "DBSTRING"}
